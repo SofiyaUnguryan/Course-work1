@@ -75,16 +75,6 @@ public class Employee {
         return salarySum;
     }
 
-    public static int averageSalary(Employee[] employees) {
-        return salaryCosts(employees) / employees.length;
-    }
-
-    public static void listOfFullNames(Employee[] employees) {
-        for (Employee employee : employees) {
-            System.out.println(employee.getFullName());
-        }
-    }
-
     public static void maxSalary(Employee[] employees) {
         Employee maxSalary = employees[0];
         for (Employee employee : employees) {
@@ -103,5 +93,15 @@ public class Employee {
             }
         }
         System.out.println("Сотрудник с минимальной зарплатой - это " + minSalary.getFullName());
+    }
+
+    public static int averageSalary(Employee[] employees) {
+        return salaryCosts(employees) / employees.length;
+    }
+
+    public static void listOfFullNames(Employee[] employees) {
+        for (Employee employee : employees) {
+            System.out.println(employee.getFullName());
+        }
     }
 }

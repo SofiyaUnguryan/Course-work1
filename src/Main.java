@@ -1,8 +1,54 @@
 public class Main {
+    public static Employee[] employees;
+
+    public static void fullInformationList(Employee[] employees) {
+        for (Employee employee : employees) {
+            System.out.println(employee.toString());
+        }
+    }
+
+    public static int salaryCosts(Employee[] employees) {
+        int salarySum = 0;
+        for (Employee employee : employees) {
+            salarySum = salarySum + employee.getSalary();
+        }
+        return salarySum;
+    }
+
+    public static void maxSalary(Employee[] employees) {
+        Employee maxSalary = employees[0];
+        for (Employee employee : employees) {
+            if (maxSalary.getSalary() < employee.getSalary()) {
+                maxSalary = employee;
+            }
+        }
+        System.out.println("Сотрудник с максимальной зарплатой - это " + maxSalary.getFullName());
+    }
+
+    public static void minSalary(Employee[] employees) {
+        Employee minSalary = employees[0];
+        for (Employee employee : employees) {
+            if (employee.getSalary() < minSalary.getSalary()) {
+                minSalary = employee;
+            }
+        }
+        System.out.println("Сотрудник с минимальной зарплатой - это " + minSalary.getFullName());
+    }
+
+    public static int averageSalary(Employee[] employees) {
+        return salaryCosts(employees) / employees.length;
+    }
+
+    public static void listOfFullNames(Employee[] employees) {
+        for (Employee employee : employees) {
+            System.out.println(employee.getFullName());
+        }
+    }
+
     public static void main(String[] args) {
         Employee[] employees = new Employee[10];
-        employees[0] = new Employee("Жарова Анна Степановна", 1,54_390);
-        employees[1] = new Employee("Пекина Любовь Андреевна", 1, 61_270);
+        employees[0] = new Employee("Жарова Анна Степановна", 1, 54_390);
+        employees[1] = new Employee("Курочка Ряба", 1, 61_270);
         employees[2] = new Employee("Гудков Игорь Никитич", 2, 40_840);
         employees[3] = new Employee("Петров Сергей Павлович", 1, 62_230);
         employees[4] = new Employee("Суворова Нинель", 3, 70_890);
@@ -14,18 +60,18 @@ public class Main {
 
         System.out.println();
         System.out.println("Лист всех сотрудников:");
-        Employee.fullInformationList(employees);
+        fullInformationList(employees);
         System.out.println();
-        System.out.println("Сумма затрат на зарплаты сотрудникам в месяц равна " + Employee.salaryCosts(employees));
+        System.out.println("Сумма затрат на зарплаты сотрудникам в месяц равна " + salaryCosts(employees));
         System.out.println();
-        Employee.minSalary(employees);
+        minSalary(employees);
         System.out.println();
-        Employee.maxSalary(employees);
+        maxSalary(employees);
         System.out.println();
-        System.out.println("Среднее значение зарплат равняется " + Employee.averageSalary(employees));
+        System.out.println("Среднее значение зарплат равняется " + averageSalary(employees));
         System.out.println();
         System.out.println("ФИО всех сотрудников:");
-        Employee.listOfFullNames(employees);
+        listOfFullNames(employees);
 
     }
 }

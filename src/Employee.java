@@ -61,47 +61,4 @@ public class Employee {
         return "ID " + id + ". " + fullName + ", " + "отдел " + department + ", " + "з/п " + salary;
     }
 
-    public static void fullInformationList(Employee[] employees) {
-        for (Employee employee : employees) {
-            System.out.println(employee.toString());
-        }
-    }
-
-    public static int salaryCosts(Employee[] employees) {
-        int salarySum = 0;
-        for (Employee employee : employees) {
-            salarySum = salarySum + employee.getSalary();
-        }
-        return salarySum;
-    }
-
-    public static int averageSalary(Employee[] employees) {
-        return salaryCosts(employees) / employees.length;
-    }
-
-    public static void listOfFullNames(Employee[] employees) {
-        for (Employee employee : employees) {
-            System.out.println(employee.getFullName());
-        }
-    }
-
-    public static void maxSalary(Employee[] employees) {
-        Employee maxSalary = employees[0];
-        for (Employee employee : employees) {
-            if (maxSalary.getSalary() < employee.getSalary()) {
-                maxSalary = employee;
-            }
-        }
-        System.out.println("Сотрудник с максимальной зарплатой - это " + maxSalary.getFullName());
-    }
-
-    public static void minSalary(Employee[] employees) {
-        Employee minSalary = employees[0];
-        for (Employee employee : employees) {
-            if (employee.getSalary() < minSalary.getSalary()) {
-                minSalary = employee;
-            }
-        }
-        System.out.println("Сотрудник с минимальной зарплатой - это " + minSalary.getFullName());
-    }
 }
